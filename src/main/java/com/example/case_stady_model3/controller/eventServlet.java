@@ -39,7 +39,7 @@ public class eventServlet extends HttpServlet {
     }
 
     private void showlistTour(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List<Tours> tours = eventServiceImpls.findAll();
+        List<Tours> tours = eventServiceImpls.findAllWithStoredProcedure();
         request.setAttribute("ListTour", tours);
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/list.jsp");
         try {

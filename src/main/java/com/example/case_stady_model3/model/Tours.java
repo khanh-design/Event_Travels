@@ -9,8 +9,9 @@ public class Tours {
     private String date_end;
     private String price;
     private int places;
+    private String Images;
 
-    public Tours(int id, String name, String description, String address, String date_start, String date_end, String price, int places) {
+    public Tours(int id, String name, String description, String address, String date_start, String date_end, String price, int places, String Images) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -19,6 +20,7 @@ public class Tours {
         this.date_end = date_end;
         this.price = price;
         this.places = places;
+        this.Images = Images;
     }
 
     public int getId() {
@@ -67,6 +69,14 @@ public class Tours {
 
     public void setDate_end(String date_end) {
         this.date_end = date_end;
+    }
+
+    public String getImages() {
+        return Images;
+    }
+
+    public void setImages(String images) {
+        Images = images;
     }
 
     public String getPrice() {
