@@ -1,0 +1,31 @@
+body {
+    background-color: #f8f9fa;
+}
+.navbar {
+    background-color: #f44336;
+}
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+.btn-register {
+    background-color: white;
+    color: #f44336;
+    font-weight: bold;
+}
+.event-card img {
+    border-radius: 10px;
+}
+.event-section h5 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+.event-info {
+    font-size: 14px;
+    color: #555;
+}
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f44336;
+}
