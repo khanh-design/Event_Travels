@@ -51,6 +51,7 @@
         font-size: 20px;
         color: red;
     }
+
     .bi a {
         padding: 5px 5px;
         color: red;
@@ -60,13 +61,16 @@
     body {
         background-color: #f8f9fa;
     }
+
     .navbar {
         background-color: #f44336;
     }
+
     .navbar-brand {
         font-weight: bold;
         color: white !important;
     }
+
     .btn-register {
         background-color: white;
         color: #f44336;
@@ -108,42 +112,37 @@
         </div>
 
 
-        <div class="row g-4">
-            <c:forEach var="tour" items="${ListTour}">
-                <div class="col-md-4">
-                    <div class="price-box mb-4">
-                        <img src="${tour.images}" class="img-fluid rounded mb-3" alt="Hình ảnh tour">
-                        <div class="old-price">33.000.000đ/ Khách</div>
-                        <div class="price">${tour.price}đ/ Khách</div>
-                        <ul class="list-unstyled">
-                            <li><strong>Mã tour:</strong> ${tour.id}</li>
-                            <li><strong>Khởi hành:</strong> ${tour.address}</li>
-                            <li><strong>Ngày:</strong> ${tour.date_start}</li>
-                            <li><strong>Số chỗ còn:</strong> ${tour.places}</li>
-                        </ul>
-                        <div class="d-grid">
-                            <a href="#">
-                                <button class="btn btn-danger w-100">Đặt ngay</button>
-                            </a>
-                        </div>
+        <c:forEach var="tour" items="${ListTour}">
+            <div class="col-md-4">
+                <div class="price-box mb-4">
+                    <div class="old-price">33.000.000đ/ Khách</div>
+                    <div class="price">${tour.price}đ/ Khách</div>
+                    <ul class="list-unstyled">
+                        <li><strong>Mã tour:</strong> ${tour.id}</li>
+                        <li><strong>Khởi hành:</strong> ${tour.address}</li>
+                        <li><strong>Ngày:</strong> ${tour.date_start}</li>
+                        <li><strong>Số chỗ còn:</strong> ${tour.places}</li>
+                    </ul>
+                    <div class="d-grid">
+                        <a href="/events?action=Register&id=${tour.id}">
+                            <button class="btn btn-danger w-100">Đặt ngay</button>
+                        </a>
                     </div>
                 </div>
-            </c:forEach>
-        </div>
+            </div>
+        </c:forEach>
     </div>
 
 </div>
 <footer class="bg-dark text-light pt-4 mt-5">
     <div class="container">
         <div class="row">
-            <!-- Giới thiệu -->
             <div class="col-md-4">
                 <h5>Sukien.com</h5>
                 <p>Chuyên trang tổ chức và giới thiệu các sự kiện học tập, đào tạo trực tuyến chất lượng cao với sự
                     góp mặt của các chuyên gia hàng đầu.</p>
             </div>
 
-            <!-- Liên kết nhanh -->
             <div class="col-md-4">
                 <h5>Liên kết nhanh</h5>
                 <ul class="list-unstyled">
@@ -154,7 +153,7 @@
                 </ul>
             </div>
 
-            <!-- Thông tin liên hệ -->
+
             <div class="col-md-4">
                 <h5>Liên hệ</h5>
                 <p>Email: hotro@sukien.net</p>
@@ -162,7 +161,7 @@
                 <p>Địa chỉ: 123 Đường Công nghệ, Quận AI, TP. HCM</p>
             </div>
         </div>
-        <hr class="bg-light" />
+        <hr class="bg-light"/>
         <div class="text-center pb-3">
             © 2025 Sukien.com. Đặt vé du lịch.
         </div>

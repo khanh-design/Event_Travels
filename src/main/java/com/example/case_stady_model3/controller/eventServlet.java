@@ -1,7 +1,10 @@
 package com.example.case_stady_model3.controller;
 
 import com.example.case_stady_model3.model.Tours;
-import com.example.case_stady_model3.service.eventServiceDAO;
+import com.example.case_stady_model3.model.Users;
+import com.example.case_stady_model3.service.bookingServiceDAO;
+import com.example.case_stady_model3.service.genneralDAO.BookingService;
+import com.example.case_stady_model3.service.tourServiceDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,10 +18,12 @@ import java.util.List;
 @WebServlet(name = "eventServlet", urlPatterns = "/events")
 public class eventServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private eventServiceDAO eventServiceImpls;
+    private tourServiceDAO eventServiceImpls;
+    private bookingServiceDAO bookingServiceImpls;
 
     public void init() {
-        eventServiceImpls = new eventServiceDAO();
+        eventServiceImpls = new tourServiceDAO();
+        bookingServiceImpls = new bookingServiceDAO();
         System.out.println("Servlet initialized");
     }
 
@@ -30,7 +35,7 @@ public class eventServlet extends HttpServlet {
 
         switch (action) {
             case "Register":
-//                showFormBooking(request, response);
+                showFormBooking(request, response);
                 break;
             default:
                 showlistTour(request, response);
@@ -38,8 +43,22 @@ public class eventServlet extends HttpServlet {
         }
     }
 
+    private void showFormBooking(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("views/register.jsp");
+        try {
+            request.getParameter("id");
+            int id = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("id_tour", id);
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void showlistTour(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List<Tours> tours = eventServiceImpls.findAllWithStoredProcedure();
+//        List<Tours> tours = eventServiceImpls.findAllWithStoredProcedure();
+        int id = Integer.parseInt(request.getParameter("id"));
+        List<Tours> tours = eventServiceImpls.findAll(id);
         request.setAttribute("ListTour", tours);
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/list.jsp");
         try {
@@ -49,12 +68,33 @@ public class eventServlet extends HttpServlet {
         }
     }
 
-//    private void showFormBooking(HttpServletRequest request, HttpServletResponse response) {
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("views/register.jsp");
-//        try {
-//            dispatcher.forward(request, response);
-//        } catch (ServletException | IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String action = request.getParameter("action");
+
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "Register":
+                FormBooking(request, response);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void FormBooking(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String ticketType = request.getParameter("ticketType");
+        String tourId = request.getParameter("id_tour");
+        int places = Integer.parseInt(request.getParameter("places"));
+
+        Users user = new Users(name, email, phone);
+        Tours tour = new Tours(Integer.parseInt(tourId), places);
+
+        bookingServiceImpls.addBooking(user, tour, ticketType, places);
+    }
+
 }

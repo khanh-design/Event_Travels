@@ -22,6 +22,10 @@ public class Tours {
         this.places = places;
         this.Images = Images;
     }
+    public Tours(int id, int places) {
+        this.id = id;
+        this.places = places;
+    }
 
     public int getId() {
         return id;

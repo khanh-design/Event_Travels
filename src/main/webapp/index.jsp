@@ -48,7 +48,6 @@
         </li>
     </ul>
     <div class="row g-3">
-        <!-- Event Card -->
         <div class="col-md-3">
             <div class="card event-card">
                 <img src="./images/Canh_quan_nui_non.jpg" class="card-img-top" alt="Event 1">
@@ -91,7 +90,7 @@
                     <p class="price">Giá khuyến mãi: <strong>29.000.000đ</strong></p>
                 </div>
                 <div class="card-footer d-flex justify-content-between align-items-center">
-                    <a href="/events" class="btn btn-primary">Đăng ký</a>
+                    <a href="/events?action=''&id=101" class="btn btn-primary">Đăng ký</a>
                     <span class="badge bg-success">Mới</span>
                 </div>
             </div>
@@ -107,72 +106,12 @@
                     <p class="price">Giá khuyến mãi: <strong>29.000.000đ</strong></p>
                 </div>
                 <div class="card-footer d-flex justify-content-between align-items-center">
-                    <a href="/events" class="btn btn-primary">Đăng ký</a>
+                    <a href="/events?action=''&id=102" class="btn btn-primary">Đăng ký</a>
                     <span class="badge bg-success">Mới</span>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card event-card">
-                <img src="./images/Cac_Hon_Dao.jpg" class="card-img-top" alt="Event 4">
-                <div class="card-body">
-                    <h5 class="card-title">Du lịch các hoàn đảo</h5>
-                    <p class="event-info">📅 14/05/2025<br>🕒 19:30 - 22:00<br>🌐 Online</p>
-                    <p class="price">Giá từ: <del>39.000.000đ</del></p>
-                    <p class="price">Giá khuyến mãi: <strong>29.000.000đ</strong></p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center">
-                    <a href="/events" class="btn btn-primary">Đăng ký</a>
-                    <span class="badge bg-success">Mới</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card event-card">
-                <img src="./images/Cac_Hon_Dao.jpg" class="card-img-top" alt="Event 4">
-                <div class="card-body">
-                    <h5 class="card-title">Du lịch các hoàn đảo</h5>
-                    <p class="event-info">📅 14/05/2025<br>🕒 19:30 - 22:00<br>🌐 Online</p>
-                    <p class="price">Giá từ: <del>39.000.000đ</del></p>
-                    <p class="price">Giá khuyến mãi: <strong>29.000.000đ</strong></p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center">
-                    <a href="/events" class="btn btn-primary">Đăng ký</a>
-                    <span class="badge bg-success">Mới</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card event-card">
-                <img src="./images/Cac_Hon_Dao.jpg" class="card-img-top" alt="Event 4">
-                <div class="card-body">
-                    <h5 class="card-title">Du lịch các hoàn đảo</h5>
-                    <p class="event-info">📅 14/05/2025<br>🕒 19:30 - 22:00<br>🌐 Online</p>
-                    <p class="price">Giá từ: <del>39.000.000đ</del></p>
-                    <p class="price">Giá khuyến mãi: <strong>29.000.000đ</strong></p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center">
-                    <a href="/events" class="btn btn-primary">Đăng ký</a>
-                    <span class="badge bg-success">Mới</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card event-card">
-                <img src="./images/Cac_Hon_Dao.jpg" class="card-img-top" alt="Event 4">
-                <div class="card-body">
-                    <h5 class="card-title">Du lịch các hoàn đảo</h5>
-                    <p class="event-info">📅 14/05/2025<br>🕒 19:30 - 22:00<br>🌐 Online</p>
-                    <p class="price">Giá từ: <del>39.000.000đ</del></p>
-                    <p class="price">Giá khuyến mãi: <strong>29.000.000đ</strong></p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center">
-                    <a href="/events" class="btn btn-primary">Đăng ký</a>
-                    <span class="badge bg-success">Mới</span>
-                </div>
-            </div>
-        </div>
     </div>
 
 </div>
