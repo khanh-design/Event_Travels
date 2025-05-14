@@ -7,6 +7,10 @@ public class Users {
     private String phone;
     private String gender;
 
+    public Users() {
+
+    }
+
     public Users(int id, String name, String phone, String email) {
         this.id = id;
         this.name = name;

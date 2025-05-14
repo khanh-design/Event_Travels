@@ -1,14 +1,18 @@
 package com.example.case_stady_model3.service;
 
+import com.example.case_stady_model3.model.Booking;
 import com.example.case_stady_model3.model.BookingDetail;
 import com.example.case_stady_model3.model.Tours;
 import com.example.case_stady_model3.model.Users;
 import com.example.case_stady_model3.service.genneralDAO.BookingService;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class bookingServiceDAO implements BookingService {
-    String GET_BOOKING_DETAIL = "{CALL sp_get_booking_detail(?)}";
+    private static final String GET_BOOKING_DETAIL = "{CALL sp_get_booking_detail(?)}";
+    private static final String GET_BOOKING_BY_CODE = "{SELECT * FROM booking WHERE code = ?}";
     @Override
     public void addBooking(Users user, Tours tour, String ticketType, int places) {
         String sql = "{CALL sp_insert_booking(?, ?, ?, ?, ?, ?)}";
@@ -56,5 +60,32 @@ public class bookingServiceDAO implements BookingService {
             DBConnection.printSQLException(e);
         }
         return detail;
+    }
+
+    @Override
+    public Booking getBookingByCode(String bookingCode) {
+        List<Booking> listBooking = new ArrayList<>();
+        try {
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(GET_BOOKING_BY_CODE);
+            ps.setString(1, bookingCode);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Booking booking = new Booking();
+                booking.setCode(rs.getString("code"));
+                booking.setDateBook(rs.getDate("date_book"));
+                booking.setState(rs.getString("state"));
+                Tours tour = new Tours();
+                tour.setId(rs.getInt("Id_tour"));
+                booking.setTour(tour);
+                Users user = new Users();
+                user.setId(rs.getInt("Id_user"));
+                booking.setUser(user);
+                listBooking.add(booking);
+            }
+        } catch (SQLException e) {
+            DBConnection.printSQLException(e);
+        }
+        return listBooking.isEmpty() ? null : listBooking.get(0);
     }
 }

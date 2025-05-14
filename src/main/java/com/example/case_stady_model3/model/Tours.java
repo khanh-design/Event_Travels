@@ -11,6 +11,9 @@ public class Tours {
     private int places;
     private String Images;
 
+    public Tours() {
+
+    }
     public Tours(int id, String name, String description, String address, String date_start, String date_end, String price, int places, String Images) {
         this.id = id;
         this.name = name;

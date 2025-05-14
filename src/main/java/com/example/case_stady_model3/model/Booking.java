@@ -9,6 +9,17 @@ public class Booking {
     private Date dateBook;
     private Users user;
     private Tours tour;
+    private String code;
+
+    public Booking(int id, String ticketType, String state, Date dateBook, Users user, Tours tour, String code) {
+        this.id = id;
+        this.ticketType = ticketType;
+        this.state = state;
+        this.dateBook = dateBook;
+        this.user = user;
+        this.tour = tour;
+        this.code = code;
+    }
 
     public Booking () {
 
@@ -49,6 +60,14 @@ public class Booking {
 
     public Date getDateBook() {
         return dateBook;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public void setDateBook(Date dateBook) {
