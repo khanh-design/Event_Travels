@@ -12,7 +12,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+</head>
 <style>
     .booking-steps {
         display: flex;
@@ -55,11 +55,8 @@
         align-items: center;
         margin-top: 20px;
     }
-
 </style>
-</head>
 <body>
-
 <div class="container py-5">
     <nav class="mb-4">
         <a href="#" class="text-decoration-none bi-arrow-left-square"> Quay lại</a>
@@ -124,11 +121,10 @@
                                 <label for="places" class="form-label">Số lượng chỗ</label>
                                 <input type="number" class="form-control" id="places" name="places" min="1" max="10" required>
                             </div>
-
-                            <a href="#" class="text-decoration-none" id="btn"></a>
-                            <button type="submit" class="btn btn-primary">Thanh toán</button>
-                            </a>
                         </form>
+                        <a href="/events?action=Payment&code=" class="text-decoration-none" id="btn">
+                            <button type="submit" class="btn btn-primary">Thanh toán</button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,6 @@ package com.example.case_stady_model3.controller;
 import com.example.case_stady_model3.model.Tours;
 import com.example.case_stady_model3.model.Users;
 import com.example.case_stady_model3.service.bookingServiceDAO;
-import com.example.case_stady_model3.service.genneralDAO.BookingService;
 import com.example.case_stady_model3.service.tourServiceDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -37,9 +36,24 @@ public class eventServlet extends HttpServlet {
             case "Register":
                 showFormBooking(request, response);
                 break;
+            case "Payment":
+                showFormPayment(request, response);
+                break;
             default:
                 showlistTour(request, response);
                 break;
+        }
+    }
+
+    private void showFormPayment(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String code = request.getParameter("code");
+        bookingServiceImpls.getBookingDetail(code);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("views/payment.jsp");
+        try {
+            request.setAttribute("code", code);
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -78,10 +92,18 @@ public class eventServlet extends HttpServlet {
             case "Register":
                 FormBooking(request, response);
                 break;
+            case "Payment":
+//                FormBookDetail(request, response);
+                break;
             default:
                 break;
         }
     }
+
+//    private void FormBookDetail(HttpServletRequest request, HttpServletResponse response) {
+//        Re
+//    }
+
 
     private void FormBooking(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("name");

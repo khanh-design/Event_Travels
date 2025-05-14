@@ -7,12 +7,11 @@ public class Users {
     private String phone;
     private String gender;
 
-    public Users(int id, String name, String email, String phone, String gender) {
+    public Users(int id, String name, String phone, String email) {
         this.id = id;
         this.name = name;
-        this.email = email;
         this.phone = phone;
-        this.gender = gender;
+        this.email = email;
     }
 
     public Users(String name, String email, String phone) {
